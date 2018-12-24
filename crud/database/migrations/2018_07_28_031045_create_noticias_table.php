@@ -15,13 +15,14 @@ class CreateNoticiasTable extends Migration
     {
         Schema::create('noticias', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('user_id');
             $table->string('titulo');
             $table->string('subtitulo');
             $table->text('descricao',3500);
             $table->text('corpoNoticia', 5000);
             $table->string('imagem');
-
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

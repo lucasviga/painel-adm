@@ -33,15 +33,17 @@
             <thead class="thead-dark">
                 <tr>
                 <th scope="col">#</th>
+                <th scope="col">Autor</th>
                 <th scope="col">Título</th>
                 <th scope="col">Subtítulo</th>
                 <th scope="col">Ação</th>
                 </tr>
             </thead>
             <tbody>
-                @forelse($registros as $registro)
+                @forelse($noti as $registro)
                 <tr>
                     <td>{{$registro->id}}</td>
+                    <td>{{$registro->name}}</td>
                     <td>{{$registro->titulo}}</td>
                     <td>{{$registro->subtitulo}}</td>
                     <td>

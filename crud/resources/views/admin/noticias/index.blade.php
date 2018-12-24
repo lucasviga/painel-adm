@@ -17,13 +17,13 @@
       <div class="card mb-3">
         <div class="card-header">
           <i class="fa fa-bell-o"></i> Notificações</div>
-        @foreach($noticias as $notificacao)
+        @foreach($noti as $notificacao)
         <div class="list-group list-group-flush small">
           <a class="list-group-item list-group-item-action" href="#">
             <div class="media">
               <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/45x45" alt="">
               <div class="media-body">
-                <strong>{{Auth::user()->name}}</strong> postou uma nova notícia em www....         
+                <strong>{{$notificacao->name}}</strong> postou uma nova notícia em www....         
                 <div class="text-muted smaller">
                     em {{ date( 'd/m/Y' , strtotime($notificacao->created_at))}} 
                     às {{ date('H:i',strtotime($notificacao->created_at))}}
@@ -43,7 +43,7 @@
       </div>
       <hr class="mt-2">
       <div class="card-deck">
-        @forelse($noticias as $noticia)
+        @forelse($noti as $noticia)
         <div class="card">
           <img class="card-img-top" src="{{asset($noticia->imagem)}}" alt="{{$noticia->titulo}}">
           <div class="card-body">

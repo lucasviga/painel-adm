@@ -1,4 +1,10 @@
 <div class="form-group">
+    <label for="exampleInputEmail1">User</label>
+    <input type="text" class="form-control" id="user_id" name="user_id" aria-describedby="emailHelp" 
+        value="{{Auth::user()->id}}" placeholder="User" readonly>           
+</div>
+
+<div class="form-group">
     <label for="exampleInputEmail1">Título</label>
     <input type="text" class="form-control" id="titulo" name="titulo" aria-describedby="emailHelp" 
         value="{{isset($registro->titulo) ? $registro->titulo : ''}}" placeholder="Título da Notícia" required>           

@@ -5,19 +5,30 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Noticia;
+use DB;
 
 class NoticiaController extends Controller
 {
     public function index(){
-        $noticias = Noticia::all();
+        $noti = DB::table ('noticias')
+        ->join ('users', 'noticias.user_id', '=', 'users.id')
+        ->select('noticias.id','users.name','noticias.titulo', 'noticias.subtitulo',  'noticias.imagem','noticias.created_at')
+        ->orderByRaw('noticias.created_at DESC')
+        ->get();
 
-        return view('admin.noticias.index', compact('noticias'));      
+        return view('admin.noticias.index', compact('noti'));      
     }
 
     public function mynews(){
-        $registros = Noticia::all();
 
-        return view('admin.noticias.mynews', compact('registros'));
+        $noti = DB::table ('noticias')
+        ->join ('users', 'noticias.user_id', '=', 'users.id')
+        ->select('noticias.id','users.name','noticias.titulo', 'noticias.subtitulo')
+        ->get();
+
+        // $registros = Noticia::all();
+
+        return view('admin.noticias.mynews', compact('noti'));
     }
 
     public function adicionar(){
@@ -66,7 +77,7 @@ class NoticiaController extends Controller
 
         Noticia::find($id)->update($dados);
 
-        \Session::flash('mensagem_sucesso','Suas alterações foram salvas com sucesso!');
+        \Session::flash('mensagem_sucesso','Suas foram atua com sucesso!');
 
         return redirect()->route('admin.minhas.noticias');
     }
