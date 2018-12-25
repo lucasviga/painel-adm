@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Site;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Noticia;
+use Carbon\Carbon;
 use DB;
 
 class HomeController extends Controller

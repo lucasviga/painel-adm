@@ -25,8 +25,7 @@
               <div class="media-body">
                 <strong>{{$notificacao->name}}</strong> postou uma nova notícia em www....         
                 <div class="text-muted smaller">
-                    em {{ date( 'd/m/Y' , strtotime($notificacao->created_at))}} 
-                    às {{ date('H:i',strtotime($notificacao->created_at))}}
+                    há {{ Carbon\Carbon::parse($notificacao->created_at)->diffForHumans()}}
                 </div>
               </div>
             </div>

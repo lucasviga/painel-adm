@@ -25,7 +25,7 @@
                 <a href="#" class="btn btn-primary">Leia mais</a>
             </div>
             <div class="card-footer">
-            <p>Autor: {{$noticia->name}}</p>
+            <p>Autor: {{$noticia->name}} há {{ Carbon\Carbon::parse($noticia->created_at)->diffForHumans()}}</p>
                 <iframe src="" width="141" height="65" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>                     
             </div>
             </div>
