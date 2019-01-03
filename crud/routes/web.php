@@ -1,9 +1,11 @@
 <?php
 
 Route::get('/',['as' => 'site.home', 'uses' => 'Site\HomeController@index']);
+Route::get('/contato',['as' => 'site.contato', 'uses' => 'Site\ContatoController@index']);
+Route::post('/enviar',['as' => 'site.contato.enviar', 'uses' => 'Site\ContatoController@sendEmail']);
+Route::get('/noticias/{id}', ['as' => 'site.ler.noticias','uses'=>'Site\HomeController@lerNoticias']);
 
 /* rotas page login*/
-
 Route::get('/login', ['as' =>'site.login','uses' => 'Site\LoginController@index']);
 Route::get('/login/sair', ['as' =>'site.login.sair','uses' => 'Site\LoginController@sair']);
 Route::post('/login/entrar', ['as' =>'site.login.entrar','uses' => 'Site\LoginController@entrar']);

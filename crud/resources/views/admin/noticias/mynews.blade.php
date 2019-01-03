@@ -18,8 +18,6 @@
                 class="btn btn-outline-success" role="button" aria-pressed="true">
                 Cadastrar Notícia
             </a>
-
-           
         </div>
     </div>
       
@@ -28,6 +26,26 @@
         @if(Session::has('mensagem_sucesso'))
             <div class="alert alert-success">{{ Session::get('mensagem_sucesso')}}</div>
         @endif
+
+        <p>No "+ Evento", você poderá adicionar informacções mais detalhadas sobre o Evento que será realizado.
+            Como data de início, horário de chegada, local do evento.
+        </p>
+
+        <form>
+            <div class="row">
+                <div class="form-group col-sm-3">
+                <label for="exampleFormControlSelect1">Pesquisar Por:</label><br>
+                <label for="exampleFormControlSelect1">Autor</label>
+                <select class="form-control" id="exampleFormControlSelect1">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                </select>
+                </div>
+            </div>
+          </form>
 
         <table class="table">
             <thead class="thead-dark">
@@ -40,13 +58,18 @@
                 </tr>
             </thead>
             <tbody>
-                @forelse($noti as $registro)
+                @forelse($my_noti as $registro)
                 <tr>
                     <td>{{$registro->id}}</td>
                     <td>{{$registro->name}}</td>
                     <td>{{$registro->titulo}}</td>
                     <td>{{$registro->subtitulo}}</td>
                     <td>
+
+                    <a class="btn btn-outline-success" href="#" 
+                        role="button">
+                        + Evento
+                    </a>
                         
                     <a class="btn btn-outline-primary" href="{{route('admin.noticias.editar',$registro->id)}}" 
                         role="button">

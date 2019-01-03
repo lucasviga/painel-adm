@@ -11,25 +11,32 @@ use DB;
 class NoticiaController extends Controller
 {
     public function index(){
+        // $noti = DB::table ('noticias')
+        // ->join ('users', 'noticias.user_id', '=', 'users.id')
+        // ->select('noticias.id','users.name','noticias.titulo', 'noticias.subtitulo',  'noticias.imagem','noticias.created_at')
+        // ->orderByRaw('noticias.created_at DESC')
+        // ->get();
+
         $noti = DB::table ('noticias')
         ->join ('users', 'noticias.user_id', '=', 'users.id')
-        ->select('noticias.id','users.name','noticias.titulo', 'noticias.subtitulo',  'noticias.imagem','noticias.created_at')
-        ->orderByRaw('noticias.created_at DESC')
-        ->get();
+        ->select('noticias.id','users.name','noticias.titulo', 'noticias.subtitulo', 'noticias.descricao','noticias.imagem','noticias.created_at')
+        ->orderBy('noticias.created_at', 'desc')
+        ->paginate(3);
 
         return view('admin.noticias.index', compact('noti'));      
     }
 
     public function mynews(){
 
-        $noti = DB::table ('noticias')
+        $my_noti = DB::table ('noticias')
         ->join ('users', 'noticias.user_id', '=', 'users.id')
         ->select('noticias.id','users.name','noticias.titulo', 'noticias.subtitulo')
+        ->orderBy('noticias.id', 'ASC')
         ->get();
 
         // $registros = Noticia::all();
 
-        return view('admin.noticias.mynews', compact('noti'));
+        return view('admin.noticias.mynews', compact('my_noti'));
     }
 
     public function adicionar(){
@@ -78,7 +85,7 @@ class NoticiaController extends Controller
 
         Noticia::find($id)->update($dados);
 
-        \Session::flash('mensagem_sucesso','Suas foram atua com sucesso!');
+        \Session::flash('mensagem_sucesso','Suas edições foram salvas com sucesso!');
 
         return redirect()->route('admin.minhas.noticias');
     }

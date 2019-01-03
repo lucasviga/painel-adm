@@ -29,7 +29,7 @@
 <!-- Navigation -->
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container">
-    <a class="navbar-brand title-menu" href="index.html">Logo | Home</a>
+    <a class="navbar-brand title-menu" href="{{route('site.home')}}">Logo | Home</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -46,7 +46,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link title-menu" href="#">Item</a>
+        <a href="{{route('site.contato')}}" class="nav-link title-menu" href="#">Contato</a>
       </li>
       <li class="nav-item">
         <a class="nav-link title-menu" href="#">Item | </a>

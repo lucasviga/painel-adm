@@ -16,6 +16,7 @@
     <div class="col-lg-12">
       <div class="card mb-3">
         <div class="card-header">
+        <p>N de noticias: </p>
           <i class="fa fa-bell-o"></i> Notificações</div>
         @foreach($noti as $notificacao)
         <div class="list-group list-group-flush small">
@@ -32,39 +33,11 @@
           </a>        
         </div>
         @endforeach
-        <div class="col-lg-12"></div>
+        <div class="col-lg-12"> {{$noti->links()}} </div>
       </div>
     </div>
 
-    <div class="col-lg-12">
-      <div class="mb-0 mt-4">
-        <i class="fa fa-newspaper-o"></i> Feed Notícias
-      </div>
-      <hr class="mt-2">
-      <div class="card-deck">
-        @forelse($noti as $noticia)
-        <div class="card">
-          <img class="card-img-top" src="{{asset($noticia->imagem)}}" alt="{{$noticia->titulo}}">
-          <div class="card-body">
-            <h5 class="card-title">{{$noticia->titulo}}</h5>
-            <p class="card-text">{{$noticia->subtitulo}}</p>
-          </div>
-          <div class="card-footer">
-            <small class="text-muted">
-              postado em {{ date( 'd/m/Y' , strtotime($noticia->created_at))}} 
-              às {{ date('H:i',strtotime($noticia->created_at))}} 
-            </small>
-          </div>
-        </div>
-        @empty
-          <div class="alert alert-warning">Nenhuma notícia cadastrada!</div>
-        @endforelse
-      </div>
-      <br><br>
-    </div>
-
-    </div>
-      
-    </div>
+    </div> 
+  </div>
 
 @endsection
