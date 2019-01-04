@@ -28,7 +28,9 @@ Route::group(['middleware'=>['auth']], function(){
     Route::get('/admin/usuario/editar/{id}', ['as' => 'admin.usuario.editar','uses'=>'Admin\UsuarioController@editar']);
     Route::put('/admin/usuario/atualizar/{id}', ['as' => 'admin.usuario.atualizar','uses'=>'Admin\UsuarioController@atualizar']);
 
+    /* rotas page noticias*/
     Route::get('/admin/minhas/noticias', ['as' => 'admin.minhas.noticias','uses'=>'Admin\NoticiaController@mynews']);
+    Route::post('/admin/noticias/pesquisar', ['as' => 'admin.noticias.pesquisar','uses'=>'Admin\NoticiaController@mynews']);
     Route::get('/admin/dashboard', ['as' => 'admin.noticias','uses'=>'Admin\NoticiaController@index']);
     Route::get('/admin/noticias/adicionar', ['as' => 'admin.noticias.adicionar','uses'=>'Admin\NoticiaController@adicionar']);
     Route::get('/admin/noticias/editar/{id}', ['as' => 'admin.noticias.editar','uses'=>'Admin\NoticiaController@editar']);

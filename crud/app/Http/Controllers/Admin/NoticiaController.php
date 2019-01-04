@@ -26,17 +26,18 @@ class NoticiaController extends Controller
         return view('admin.noticias.index', compact('noti'));      
     }
 
-    public function mynews(){
+    public function mynews(Request $req){
+
+        $search = $req->search;
 
         $my_noti = DB::table ('noticias')
         ->join ('users', 'noticias.user_id', '=', 'users.id')
         ->select('noticias.id','users.name','noticias.titulo', 'noticias.subtitulo')
+        ->where('users.name', 'like', '%'.$search.'%')
         ->orderBy('noticias.id', 'ASC')
         ->get();
 
-        // $registros = Noticia::all();
-
-        return view('admin.noticias.mynews', compact('my_noti'));
+        return view('admin.noticias.mynews', compact('my_noti', 'search'));
     }
 
     public function adicionar(){

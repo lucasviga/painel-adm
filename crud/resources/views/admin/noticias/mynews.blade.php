@@ -34,15 +34,11 @@
         <form>
             <div class="row">
                 <div class="form-group col-sm-3">
-                <label for="exampleFormControlSelect1">Pesquisar Por:</label><br>
-                <label for="exampleFormControlSelect1">Autor</label>
-                <select class="form-control" id="exampleFormControlSelect1">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                </select>
+                <form action="{{route('admin.noticias.pesquisar')}}" method="POST">
+                    <label for="exampleFormControlSelect1">Pesquisar Por:</label><br>
+                    <label for="exampleFormControlSelect1">Autor</label>
+                <input class="form-control" type="text" id="search" name="search" value="{{$search}}">
+                </form>
                 </div>
             </div>
           </form>
