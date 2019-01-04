@@ -13,6 +13,22 @@ class UsuarioController extends Controller
     }
 
     public function salvarUsuario(Request $request){
+
+        $this->validate($request, [
+          'name' => 'required|min:4|max:20',
+          'email' => 'required|email',
+          'password' => 'required|min:5|max:20'
+        ], [
+          'name.required'=>'informe um nome de usuário',
+          'name.min'=>'nome de usuário é menor que 4 caracteres',
+          'name.max'=>'nome de usuário é maior que 20 caracteres',
+          'email.required'=>'Preencha o campo email',
+          'email.email'=>'Informe um email válido',
+          'password.required'=>'informe uma nova senha',
+          'password.min'=>'senha é menor que 6 caracteres',
+          'password.max'=>'senha é maior que 20 caracteres',
+        ]);
+
         $dados = $request->all();
 
         $novoUsuario = [
@@ -26,7 +42,7 @@ class UsuarioController extends Controller
             $usuario->update($novoUsuario);
         }
         else
-        {      
+        {
             User::create($novoUsuario);
             \Session::flash('mensagem_sucesso','Usuário criado com sucesso!');
         }
