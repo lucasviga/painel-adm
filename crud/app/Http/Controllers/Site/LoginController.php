@@ -16,8 +16,12 @@ class LoginController extends Controller
     public function entrar(Request $req){
 
         $this->validate($req, [
-          'email' => 'required',
+          'email' => 'required|email',
           'senha' => 'required',
+        ], [
+          'email.required'=>'Preencha o campo email',
+          'email.email'=>'Informe um email válido',
+          'senha.required'=>'Preencha a senha corretamente'
         ]);
         $dados = $req->all();
 

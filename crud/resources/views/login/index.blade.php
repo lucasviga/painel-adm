@@ -38,7 +38,7 @@
               <div class="input-group-prepend">
                 <div class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></div>
               </div>
-              <input type="text" class="form-control" id="email" name="email" placeholder="email">
+              <input type="text" class="form-control" id="email" name="email" placeholder="email" value="{{old('email')}}">
             </div>
           </div>
 
@@ -48,7 +48,7 @@
                 <div class="input-group-prepend">
                   <div class="input-group-text"><i class="fa fa-lock" aria-hidden="true"></i></div>
                 </div>
-                <input type="password" class="form-control" id="senha" name="senha" placeholder="senha">
+                <input type="password" class="form-control" id="senha" name="senha" placeholder="senha" value="{{old('senha')}}">
               </div>
             </div>
           <button type="submit" class="btn btn-primary btn-lg btn-block">Entrar</button>
