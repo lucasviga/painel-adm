@@ -14,6 +14,18 @@ class ContatoController extends Controller
     }
 
     public function sendEmail(Request $req){
+
+        $this->validate($req,[
+          'nome' => 'required|min:4|max:50',
+          'email' => 'required|email',
+          'mensagem' => 'required|min:4'
+        ],[
+          'nome.required' => 'Informe o seu nome',
+          'email.required'=>'Preencha o campo email',
+          'email.email'=>'Informe um email válido',
+          'mensagem.required' => 'Digite a sua mensagem'
+        ]);
+
         Mail::to('lucasviga12@mailtrapio.com')->send(new ContatoEmail($req));
 
         return redirect()->route('site.home');
