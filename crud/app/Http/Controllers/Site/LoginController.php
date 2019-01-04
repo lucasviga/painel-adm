@@ -15,6 +15,10 @@ class LoginController extends Controller
 
     public function entrar(Request $req){
 
+        $this->validate($req, [
+          'email' => 'required',
+          'senha' => 'required',
+        ]);
         $dados = $req->all();
 
         if(Auth::attempt(['email'=>$dados['email'], 'password' => $dados['senha']]))

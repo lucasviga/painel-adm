@@ -23,7 +23,7 @@ class NoticiaController extends Controller
         ->orderBy('noticias.created_at', 'desc')
         ->paginate(3);
 
-        return view('admin.noticias.index', compact('noti'));      
+        return view('admin.noticias.index', compact('noti'));
     }
 
     public function mynews(Request $req){
@@ -41,13 +41,13 @@ class NoticiaController extends Controller
     }
 
     public function adicionar(){
-        
+
         return view('admin.noticias.adicionar');
     }
 
     public function salvar(Request $req){
         $dados = $req->all();
-        
+
         if($req->hasFile('imagem')){
             $imagem = $req->file('imagem');
             $num = rand(1111,9999);
@@ -73,7 +73,7 @@ class NoticiaController extends Controller
 
     public function atualizar(Request $req, $id){
         $dados = $req->all();
-        
+
         if($req->hasFile('imagem')){
             $imagem = $req->file('imagem');
             $num = rand(1111,9999);

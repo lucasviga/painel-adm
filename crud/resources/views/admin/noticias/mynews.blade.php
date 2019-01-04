@@ -10,17 +10,17 @@
         </li>
         <li class="breadcrumb-item active">Minhas Notícias</li>
       </ol>
-    
+
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <h1 class="display-4">Minhas Notícias</h1>
-            <a href="{{route('admin.noticias.adicionar')}}" 
+            <a href="{{route('admin.noticias.adicionar')}}"
                 class="btn btn-outline-success" role="button" aria-pressed="true">
                 Cadastrar Notícia
             </a>
         </div>
     </div>
-      
+
 <div class="row">
     <div class="col-lg-12">
         @if(Session::has('mensagem_sucesso'))
@@ -37,7 +37,7 @@
                 <form action="{{route('admin.noticias.pesquisar')}}" method="POST">
                     <label for="exampleFormControlSelect1">Pesquisar Por:</label><br>
                     <label for="exampleFormControlSelect1">Autor</label>
-                <input class="form-control" type="text" id="search" name="search" value="{{$search}}">
+                    <input class="form-control" type="text" id="search" name="search" value="{{$search}}">
                 </form>
                 </div>
             </div>
@@ -62,17 +62,17 @@
                     <td>{{$registro->subtitulo}}</td>
                     <td>
 
-                    <a class="btn btn-outline-success" href="#" 
+                    <a class="btn btn-outline-success" href="#"
                         role="button">
                         + Evento
                     </a>
-                        
-                    <a class="btn btn-outline-primary" href="{{route('admin.noticias.editar',$registro->id)}}" 
+
+                    <a class="btn btn-outline-primary" href="{{route('admin.noticias.editar',$registro->id)}}"
                         role="button">
                         <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Editar
                     </a>
 
-                    <a class="btn btn-danger" href="{{route('admin.noticias.deletar',$registro->id)}}" 
+                    <a class="btn btn-danger" href="{{route('admin.noticias.deletar',$registro->id)}}"
                         role="button">
                         <i class="fa fa-trash" aria-hidden="true" style="color:#fff;"></i> Apagar
                     </a>
@@ -84,9 +84,9 @@
             </tbody>
         </table>
         <br><br>
-    </div>       
+    </div>
 </div>
-      
+
     </div>
 
 @endsection

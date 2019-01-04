@@ -21,11 +21,20 @@
     <div class="card card-login mx-auto mt-5">
       <div class="card-header">Entrar</div>
       <div class="card-body">
+        @if(count($errors) > 0)
+          <div class="alert alert-danger">
+            <ul>
+              @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+              @endforeach
+            </ul>
+          </div>
+        @endif
       <form class="" action="{{route('site.login.entrar')}}" method="POST">
           @csrf
           <div class="form-group">
             <label for="exampleInputPassword1">Email</label>
-            <div class="input-group mb-2 mr-sm-2">           
+            <div class="input-group mb-2 mr-sm-2">
               <div class="input-group-prepend">
                 <div class="input-group-text"><i class="fa fa-user" aria-hidden="true"></i></div>
               </div>
@@ -35,11 +44,11 @@
 
           <div class="form-group">
               <label for="exampleInputPassword1">Senha</label>
-              <div class="input-group mb-2 mr-sm-2">           
+              <div class="input-group mb-2 mr-sm-2">
                 <div class="input-group-prepend">
                   <div class="input-group-text"><i class="fa fa-lock" aria-hidden="true"></i></div>
                 </div>
-                <input type="password" class="form-control" id="senha" name="senha" placeholder="email">
+                <input type="password" class="form-control" id="senha" name="senha" placeholder="senha">
               </div>
             </div>
           <button type="submit" class="btn btn-primary btn-lg btn-block">Entrar</button>
