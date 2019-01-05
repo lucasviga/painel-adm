@@ -46,6 +46,14 @@ class NoticiaController extends Controller
     }
 
     public function salvar(Request $req){
+
+        $this->validate($req,[
+            'titulo' => 'required|unique:noticias'
+        ],[
+            'titulo.required' => 'Escolha um Titulo para sua Noticia',
+            'titulo.unique' => 'Este titulo já existe, tente outro'
+        ]);
+
         $dados = $req->all();
 
         if($req->hasFile('imagem')){

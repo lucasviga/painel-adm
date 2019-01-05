@@ -7,7 +7,7 @@
 <div class="form-group">
     <label for="exampleInputEmail1">Título</label>
     <input type="text" class="form-control" id="titulo" name="titulo" aria-describedby="emailHelp" 
-        value="{{isset($registro->titulo) ? $registro->titulo : ''}}" placeholder="Título da Notícia" required>           
+        value="{{isset($registro->titulo) ? $registro->titulo : ''}}" placeholder="Título da Notícia">           
 </div>
 
 <div class="form-group">
