@@ -1,5 +1,5 @@
 ﻿# Laravel-crud
-O projeto é um CRUD, um gerenciador de conteúdo. Neste projeto estou usando o framework Laravel 5.6
+Este projeto foi desenvolvido usando Laravel com um banco de dados MySQL. O projeto foi pensado para fins didáticos. Suas principais características são as consultas, relacionamento entre tabelas, controle de rotas, sistema de autenticação e crud.
 
 ## Criar o arquivo .env
 Para conectar com o banco de dados é preciso o arquivo .env. Então vamos lá!
